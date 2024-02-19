@@ -3,7 +3,7 @@
   "display": "Server",
   "extends": "./base.json",
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "NodeNext",
     "allowJs": true,
     "sourceMap": true,
     "noEmit": false,

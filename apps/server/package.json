@@ -7,12 +7,16 @@
     "dev": "rm -rf dist && pnpm build && nodemon ./dist/src/index.js",
     "build": "tsc",
     "start": "node ./dist/src/index.js",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
     "test": "echo \"Server tests\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/express": "^4.17.21",
     "@types/node": "^20.10.6",
     "eslint": "^8.56.0",
