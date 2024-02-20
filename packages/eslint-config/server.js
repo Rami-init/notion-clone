@@ -2,46 +2,41 @@ const { resolve } = require('node:path')
 
 const project = resolve(process.cwd(), 'tsconfig.json')
 
-/** @type {import("eslint").Linter.Config} */
+/*
+ * This is a custom ESLint configuration for use with
+ * Next.js apps.
+ *
+ * This config extends the Vercel Engineering Style Guide.
+ * For more information, see https://github.com/vercel/style-guide
+ *
+ */
+
 module.exports = {
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'airbnb-base',
-    'airbnb-typescript/base',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'prettier',
+    '@vercel/style-guide/eslint/node',
+    '@vercel/style-guide/eslint/typescript',
     'eslint-config-turbo',
-  ],
-  env: {
-    node: true,
+    'prettier',
+  ].map(require.resolve),
+  parserOptions: {
+    project,
   },
-  plugins: ['only-warn', 'import', '@typescript-eslint'],
+  env: {
+    Node: true,
+  },
   settings: {
-    'import/parser': {
-      '@typescript-eslint/parser': ['.ts'],
-    },
     'import/resolver': {
       typescript: {
         project,
       },
+      node: {
+        extensions: ['.js', '.ts'],
+      },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    'node_modules/',
-    'dist/',
-    'coverage/',
-    '*.d.ts',
-    '*.yaml',
-    '*.lock',
-    '*.log',
-    '*.md',
-    '**/*.js',
-    '**/*.json',
-    '.turbo',
-  ],
-  overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
+  ignorePatterns: ['node_modules/', 'dist/'],
+  // add rules configurations here
+  rules: {
+    'import/no-default-export': 'off',
+  },
 }
