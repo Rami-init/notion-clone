@@ -2,81 +2,45 @@ const { resolve } = require('node:path')
 
 const project = resolve(process.cwd(), 'tsconfig.json')
 
-/** @type {import("eslint").Linter.Config} */
+/*
+ * This is a custom ESLint configuration for use with
+ * Next.js apps.
+ *
+ * This config extends the Vercel Engineering Style Guide.
+ * For more information, see https://github.com/vercel/style-guide
+ *
+ */
+
 module.exports = {
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'prettier',
-    require.resolve('@vercel/style-guide/eslint/next'),
+    '@vercel/style-guide/eslint/node',
+    '@vercel/style-guide/eslint/typescript',
+    '@vercel/style-guide/eslint/browser',
+    '@vercel/style-guide/eslint/react',
+    '@vercel/style-guide/eslint/next',
     'eslint-config-turbo',
-  ],
+    'prettier',
+  ].map(require.resolve),
+  parserOptions: {
+    project,
+  },
   globals: {
     React: true,
     JSX: true,
   },
-  env: {
-    node: true,
-    browser: true,
-  },
-  plugins: ['only-warn', 'import', '@typescript-eslint'],
   settings: {
-    'import/parser': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
     'import/resolver': {
       typescript: {
         project,
       },
+      node: {
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    '.*.js',
-    'node_modules/',
-    'dist/',
-    'coverage/',
-    'public/',
-    'out/',
-    'build/',
-    'tmp/',
-    '*.d.ts',
-    '*.yaml',
-    '*.lock',
-    '*.log',
-    '*.md',
-    '*.png',
-    '*.jpg',
-    '*.jpeg',
-    '*.gif',
-    '*.svg',
-    '*.ico',
-    '**/*.json',
-    '.turbo',
-    '.next',
-  ],
-  overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
+  ignorePatterns: ['node_modules/', 'dist/'],
+  // add rules configurations here
   rules: {
-    'react/require-default-props': 'off',
-    'newline-before-return': 2,
-    'react/prop-types': 0,
-    'react/react-in-jsx-scope': 0,
-    '@typescript-eslint/no-unused-vars': [
-      2,
-      {
-        argsIgnorePattern: '^_',
-      },
-    ],
-    'no-console': [
-      2,
-      {
-        allow: ['warn', 'error'],
-      },
-    ],
+    'import/no-default-export': 'off',
   },
 }

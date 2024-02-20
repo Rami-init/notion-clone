@@ -1,32 +1,36 @@
 const { resolve } = require('node:path')
 
 const project = resolve(process.cwd(), 'tsconfig.json')
+/*
+ * This is a custom ESLint configuration for use with
+ * typescript packages.
+ *
+ * This config extends the Vercel Engineering Style Guide.
+ * For more information, see https://github.com/vercel/style-guide
+ *
+ */
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
+    '@vercel/style-guide/eslint/node',
+    '@vercel/style-guide/eslint/typescript',
     'prettier',
-    'eslint-config-turbo',
-  ],
-  plugins: ['only-warn', 'import', '@typescript-eslint'],
+  ].map(require.resolve),
+  parserOptions: {
+    project,
+  },
   globals: {
     React: true,
     JSX: true,
-  },
-  env: {
-    node: true,
   },
   settings: {
     'import/resolver': {
       typescript: {
         project,
+      },
+      node: {
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
@@ -37,7 +41,6 @@ module.exports = {
     'dist/',
     'coverage/',
     'public/',
-    'out/',
     'build/',
     'tmp/',
     '*.d.ts',
@@ -59,22 +62,4 @@ module.exports = {
       files: ['*.js?(x)', '*.ts?(x)'],
     },
   ],
-  rules: {
-    'react/require-default-props': 'off',
-    'newline-before-return': 2,
-    'react/prop-types': 0,
-    'react/react-in-jsx-scope': 0,
-    '@typescript-eslint/no-unused-vars': [
-      2,
-      {
-        argsIgnorePattern: '^_',
-      },
-    ],
-    'no-console': [
-      2,
-      {
-        allow: ['warn', 'error'],
-      },
-    ],
-  },
 }
