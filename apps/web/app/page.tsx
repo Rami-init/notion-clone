@@ -1,5 +1,11 @@
-import styles from './page.module.css'
+import Card from '@repo/ui/card'
 
 export default function Page(): JSX.Element {
-  return <main className={styles.main}>hello world</main>
+  return (
+    <main className="bg-yellow-500 w-screen h-screen">
+      <Card href="" title="no one">
+        gge
+      </Card>
+    </main>
+  )
 }

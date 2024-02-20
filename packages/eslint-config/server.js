@@ -41,6 +41,7 @@ module.exports = {
     '*.md',
     '**/*.js',
     '**/*.json',
+    '.turbo',
   ],
   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
 }
