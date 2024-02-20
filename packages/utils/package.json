@@ -7,9 +7,6 @@
   "exports": {
     ".": "./dist"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "tsup",
     "lint": "eslint src/",
