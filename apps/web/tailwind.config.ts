@@ -1,8 +1,8 @@
-import sharedPreset from "@repo/ui/styles/shared-preset";
+import sharedConfig from "@repo/tailwind-config/tailwind.config";
 import type { Config } from "tailwindcss";
 
 const config = {
-  presets: [sharedPreset],
+  presets: [sharedConfig],
   content: [
     "./**/*.{js,ts,jsx,tsx}",
     "../../packages/ui/src/**/*{.js,.ts,.jsx,.tsx}",
