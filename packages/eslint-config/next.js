@@ -19,9 +19,7 @@ module.exports = {
     "@vercel/style-guide/eslint/react",
     "@vercel/style-guide/eslint/next",
     "eslint-config-turbo",
-    "prettier",
   ].map(require.resolve),
-  plugins: ["only-warn"],
   parserOptions: {
     project,
   },
@@ -29,13 +27,11 @@ module.exports = {
     React: true,
     JSX: true,
   },
+  plugins: ["only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
         project,
-      },
-      node: {
-        extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
@@ -43,8 +39,5 @@ module.exports = {
   // add rules configurations here
   rules: {
     "import/no-default-export": "off",
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
-    "@next/next/no-img-element": "off",
   },
 };

@@ -13,27 +13,21 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 module.exports = {
   extends: [
-    "next/core-web-vitals",
-    require.resolve("@vercel/style-guide/eslint/browser"),
-    require.resolve("@vercel/style-guide/eslint/react"),
-    "eslint-config-turbo",
-    "prettier",
-  ],
-  plugins: ["only-warn"],
+    "@vercel/style-guide/eslint/browser",
+    "@vercel/style-guide/eslint/typescript",
+    "@vercel/style-guide/eslint/react",
+  ].map(require.resolve),
   parserOptions: {
     project,
   },
   globals: {
-    React: true,
     JSX: true,
   },
+  plugins: ["only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
         project,
-      },
-      node: {
-        extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
