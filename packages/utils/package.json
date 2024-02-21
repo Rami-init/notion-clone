@@ -2,19 +2,21 @@
   "name": "@repo/utils",
   "version": "0.1.1",
   "sideEffects": false,
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./dist"
-  },
+  "files": [
+    "dist/**"
+  ],
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "tsup",
+    "watch": "tsup --watch",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "typecheck": "tsc --noEmit"
+    "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@types/node": "^20.11.19",
     "tsup": "^6.0.1",
     "typescript": "^5.2.2"
   }

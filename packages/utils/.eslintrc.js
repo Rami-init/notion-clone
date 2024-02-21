@@ -1,4 +1,8 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["@turbocharger/eslint-config/base"],
-  ignorePatterns: ["tsup.config.ts"],
+  extends: ["@repo/eslint-config/base.js"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: true,
+  },
 };
