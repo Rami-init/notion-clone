@@ -1,0 +1,33 @@
+module.exports = {
+  singleQuote: false,
+  bracketSpacing: true,
+  jsxSingleQuote: false,
+  bracketSameLine: false,
+  trailingComma: "es5",
+  semi: true,
+  printWidth: 80,
+  arrowParens: "always",
+  // importOrder: [
+  //   // Mocks must be at the top as they contain vi.mock calls
+  //   "(.*)/__mocks__/(.*)",
+  //   "^(react/(.*)$)|^(react$)",
+  //   "^(next/(.*)$)|^(next$)",
+  //   "<THIRD_PARTY_MODULES>",
+  //   "^@(turbocharger)/(.*)$",
+  //   "^(@/components/(.*)$)",
+  //   "^(@/hooks/(.*)$)",
+  //   "^(@/utils/(.*)$)",
+  //   "^(@/lib/(.*)$)",
+  //   "^(@/styles/(.*)$)",
+  //   "^(@/assets/(.*)$)",
+  //   "^(@/types/(.*)$)",
+  //   "^(@/(.*)$)",
+  //   "^~/(.*)$",
+  //   "^[./]",
+  // ],
+  // importOrderSeparation: false,
+  plugins: [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss",
+  ],
+};
