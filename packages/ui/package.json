@@ -12,9 +12,7 @@
     "react": "^18.2.0"
   },
   "exports": {
-    "./button": "./src/components/button.tsx",
-    "./card": "./src/components/card.tsx",
-    "./code": "./src/components/code.tsx",
+    "./badge": "./src/components/badge.tsx",
     "./styles/shared-preset": "./src/styles/shared-preset.ts"
   },
   "scripts": {

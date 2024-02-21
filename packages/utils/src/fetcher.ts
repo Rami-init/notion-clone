@@ -1,8 +1,8 @@
 export async function fetcher<JSON = any>(
   input: RequestInfo,
-  init?: RequestInit,
+  init?: RequestInit
 ): Promise<JSON> {
-  const response = await fetch(input, { ...init, cache: 'no-store' })
+  const response = await fetch(input, { ...init, cache: "no-store" });
 
-  return response.json()
+  return response.json();
 }

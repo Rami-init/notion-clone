@@ -6,7 +6,7 @@
     "module": "NodeNext",
     "allowJs": true,
     "sourceMap": true,
-    "noEmit": false,
+    "noEmit": true,
     "target": "ES6"
   }
 }

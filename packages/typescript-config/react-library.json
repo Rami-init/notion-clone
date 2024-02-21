@@ -1,13 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "React Library",
-  "extends": "./base.json",
+  "extends": "./library.json",
   "compilerOptions": {
     "lib": ["ES2015", "DOM"],
-    "module": "ESNext",
     "target": "ES6",
+    "module": "ESNext",
     "jsx": "react-jsx",
     "noEmit": true
-  },
-  "exclude": ["node_modules"]
+  }
 }

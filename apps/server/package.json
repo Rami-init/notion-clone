@@ -2,11 +2,15 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist"
+  },
   "scripts": {
-    "dev": "rm -rf dist && pnpm build && nodemon ./dist/src/index.js",
-    "build": "tsc",
-    "start": "node ./dist/src/index.js",
+    "dev": "tsup && nodemon dist/index.js",
+    "build": "tsup",
+    "start": "node dist/index.js",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "test": "echo \"Server tests\""
@@ -21,7 +25,7 @@
     "@types/node": "^20.10.6",
     "eslint": "^8.56.0",
     "nodemon": "^3.0.3",
-    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
   "dependencies": {

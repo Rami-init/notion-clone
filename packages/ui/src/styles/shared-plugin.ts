@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
+
 /* eslint-disable import/no-extraneous-dependencies */
-import defaultTheme from 'tailwindcss/defaultTheme'
-import plugin from 'tailwindcss/plugin'
-import rootCss from './rootCss'
+import rootCss from "./rootCss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 const sharedPlugin = plugin(
   // Add css variables definition to the base layer
@@ -12,103 +13,103 @@ const sharedPlugin = plugin(
       // eslint-disable-next-line no-sequences
     }),
       addBase({
-        '*': {
-          '@apply border-border': {},
+        "*": {
+          "@apply border-border": {},
         },
         body: {
-          '@apply bg-background text-foreground': {},
-          'font-feature-settings': '"rlig" 1,"calt" 1',
+          "@apply bg-background text-foreground": {},
+          "font-feature-settings": '"rlig" 1,"calt" 1',
         },
-      })
+      });
   },
   {
     theme: {
       screens: {
-        xs: '475px',
+        xs: "475px",
         ...defaultTheme.screens,
       },
       fontFamily: {
-        display: ['var(--font-display)', 'sans-serif'],
+        display: ["var(--font-display)", "sans-serif"],
       },
       container: {
         center: true,
-        padding: '2rem',
+        padding: "2rem",
         screens: {
-          '2xl': '1400px',
+          "2xl": "1400px",
         },
       },
       extend: {
         typography: {
           quoteless: {
             css: {
-              'blockquote p:first-of-type::before': { content: 'none' },
-              'blockquote p:first-of-type::after': { content: 'none' },
+              "blockquote p:first-of-type::before": { content: "none" },
+              "blockquote p:first-of-type::after": { content: "none" },
             },
           },
         },
         colors: {
-          border: 'hsl(var(--border))',
-          input: 'hsl(var(--input))',
-          ring: 'hsl(var(--ring))',
-          background: 'hsl(var(--background))',
+          border: "hsl(var(--border))",
+          input: "hsl(var(--input))",
+          ring: "hsl(var(--ring))",
+          background: "hsl(var(--background))",
           foreground: {
-            DEFAULT: 'hsl(var(--foreground))',
-            secondary: 'hsl(var(--foreground-secondary))',
+            DEFAULT: "hsl(var(--foreground))",
+            secondary: "hsl(var(--foreground-secondary))",
           },
           primary: {
-            DEFAULT: 'hsl(var(--primary))',
-            foreground: 'hsl(var(--primary-foreground))',
+            DEFAULT: "hsl(var(--primary))",
+            foreground: "hsl(var(--primary-foreground))",
           },
           secondary: {
-            DEFAULT: 'hsl(var(--secondary))',
-            foreground: 'hsl(var(--secondary-foreground))',
+            DEFAULT: "hsl(var(--secondary))",
+            foreground: "hsl(var(--secondary-foreground))",
           },
           destructive: {
-            DEFAULT: 'hsl(var(--destructive))',
-            foreground: 'hsl(var(--destructive-foreground))',
+            DEFAULT: "hsl(var(--destructive))",
+            foreground: "hsl(var(--destructive-foreground))",
           },
           success: {
-            DEFAULT: 'hsl(var(--success))',
-            foreground: 'hsl(var(--success-foreground))',
+            DEFAULT: "hsl(var(--success))",
+            foreground: "hsl(var(--success-foreground))",
           },
           muted: {
-            DEFAULT: 'hsl(var(--muted))',
-            foreground: 'hsl(var(--muted-foreground))',
+            DEFAULT: "hsl(var(--muted))",
+            foreground: "hsl(var(--muted-foreground))",
           },
           accent: {
-            DEFAULT: 'hsl(var(--accent))',
-            foreground: 'hsl(var(--accent-foreground))',
+            DEFAULT: "hsl(var(--accent))",
+            foreground: "hsl(var(--accent-foreground))",
           },
           popover: {
-            DEFAULT: 'hsl(var(--popover))',
-            foreground: 'hsl(var(--popover-foreground))',
+            DEFAULT: "hsl(var(--popover))",
+            foreground: "hsl(var(--popover-foreground))",
           },
           card: {
-            DEFAULT: 'hsl(var(--card))',
-            foreground: 'hsl(var(--card-foreground))',
+            DEFAULT: "hsl(var(--card))",
+            foreground: "hsl(var(--card-foreground))",
           },
         },
         borderRadius: {
-          lg: 'var(--radius)',
-          md: 'calc(var(--radius) - 2px)',
-          sm: 'calc(var(--radius) - 4px)',
+          lg: "var(--radius)",
+          md: "calc(var(--radius) - 2px)",
+          sm: "calc(var(--radius) - 4px)",
         },
         keyframes: {
-          'accordion-down': {
-            from: { height: '0' },
-            to: { height: 'var(--radix-accordion-content-height)' },
+          "accordion-down": {
+            from: { height: "0" },
+            to: { height: "var(--radix-accordion-content-height)" },
           },
-          'accordion-up': {
-            from: { height: 'var(--radix-accordion-content-height)' },
-            to: { height: '0' },
+          "accordion-up": {
+            from: { height: "var(--radix-accordion-content-height)" },
+            to: { height: "0" },
           },
         },
         animation: {
-          'accordion-down': 'accordion-down 0.2s ease-out',
-          'accordion-up': 'accordion-up 0.2s ease-out',
+          "accordion-down": "accordion-down 0.2s ease-out",
+          "accordion-up": "accordion-up 0.2s ease-out",
         },
       },
     },
-  },
-)
-export default sharedPlugin
+  }
+);
+export default sharedPlugin;

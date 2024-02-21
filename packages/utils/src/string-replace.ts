@@ -1,3 +1,3 @@
-import reactStringReplace from 'react-string-replace'
+import reactStringReplace from "react-string-replace";
 
-export { reactStringReplace as stringReplace }
+export { reactStringReplace as stringReplace };

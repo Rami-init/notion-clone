@@ -1,6 +1,5 @@
-const { resolve } = require('node:path')
-
-const project = resolve(process.cwd(), 'tsconfig.json')
+const { resolve } = require("node:path");
+const project = resolve(process.cwd(), "tsconfig.json");
 /*
  * This is a custom ESLint configuration for use with
  * typescript packages.
@@ -13,53 +12,37 @@ const project = resolve(process.cwd(), 'tsconfig.json')
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
-    '@vercel/style-guide/eslint/node',
-    '@vercel/style-guide/eslint/typescript',
-    'prettier',
-  ].map(require.resolve),
-  parserOptions: {
-    project,
-  },
+    require.resolve("@vercel/style-guide/eslint/node"),
+    require.resolve("@vercel/style-guide/eslint/typescript"),
+    "eslint-config-turbo",
+    "prettier",
+  ],
   globals: {
     React: true,
     JSX: true,
   },
+  env: {
+    node: true,
+  },
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       typescript: {
         project,
       },
       node: {
-        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
+        extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
   ignorePatterns: [
     // Ignore dotfiles
-    '.*.js',
-    'node_modules/',
-    'dist/',
-    'coverage/',
-    'public/',
-    'build/',
-    'tmp/',
-    '*.d.ts',
-    '*.yaml',
-    '*.lock',
-    '*.log',
-    '*.md',
-    '*.png',
-    '*.jpg',
-    '*.jpeg',
-    '*.gif',
-    '*.svg',
-    '*.ico',
-    '**/*.json',
-    '.turbo',
+    ".*.js",
+    "node_modules/",
+    "dist/",
   ],
   overrides: [
     {
-      files: ['*.js?(x)', '*.ts?(x)'],
+      files: ["*.js?(x)", "*.ts?(x)"],
     },
   ],
-}
+};

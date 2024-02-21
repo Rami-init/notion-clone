@@ -1,11 +1,11 @@
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from "date-fns";
 
 export const formatDate = (date: string | Date) => {
-  let parsedDate: Date
-  if (typeof date === 'string') {
-    parsedDate = parseISO(date)
+  let parsedDate: Date;
+  if (typeof date === "string") {
+    parsedDate = parseISO(date);
   } else {
-    parsedDate = date
+    parsedDate = date;
   }
-  return format(parsedDate, 'MMM dd, yyyy')
-}
+  return format(parsedDate, "MMM dd, yyyy");
+};
