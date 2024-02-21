@@ -166,6 +166,9 @@ importers:
       '@turbo/gen':
         specifier: ^1.11.3
         version: 1.12.4(@types/node@20.11.19)(typescript@5.3.3)
+      '@types/node':
+        specifier: ^20.11.19
+        version: 20.11.19
       '@types/react':
         specifier: ^18.2.46
         version: 18.2.57
