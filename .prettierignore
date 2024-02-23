@@ -1,0 +1,10 @@
+node_modules
+.next
+yarn.lock
+dist
+public 
+coverage
+.gitkeep
+*.hbs
+# Ignore all HTML files:
+**/*.html
