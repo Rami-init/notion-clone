@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "sideEffects": false,
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./dist"
-  },
   "scripts": {
-    "dev": "tsup && nodemon dist/index.js",
+    "start": "node ./dist/index.js",
+    "dev": "tsup --watch --onSuccess \"node dist/index.js\"",
     "build": "tsup",
-    "start": "node dist/index.js",
-    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
     "lint:fix": "eslint . --fix",
     "test": "echo \"Server tests\""
   },

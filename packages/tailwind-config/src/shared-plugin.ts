@@ -1,16 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-
-/* eslint-disable import/no-extraneous-dependencies */
-import rootCss from "./rootCss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
+import rootCss from "./rootCss";
 
 const sharedPlugin = plugin(
   // Add css variables definition to the base layer
   ({ addBase }) => {
     addBase({
       ...rootCss,
-      // eslint-disable-next-line no-sequences
     }),
       addBase({
         "*": {

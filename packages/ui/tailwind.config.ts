@@ -1,10 +1,11 @@
 // tailwind config is required for editor support
-import sharedConfig from "@repo/tailwind-config/tailwind.config";
+import { sharedPreset } from "@repo/tailwind-config";
 import type { Config } from "tailwindcss";
 
-const config: Pick<Config, "prefix" | "presets"> = {
+const config: Pick<Config, "prefix" | "presets" | "content"> = {
+  content: ["./src/**/*.tsx"],
   prefix: "ui-",
-  presets: [sharedConfig],
+  presets: [sharedPreset],
 };
 
 export default config;

@@ -1,9 +1,10 @@
 {
-  "extends": "@repo/typescript-config/server.json",
-  // "compilerOptions": {
-  //   "rootDir": ".",
-  //   "outDir": "dist"
-  // },
-  "include": ["src", "*.d.ts"],
-  "exclude": ["node_modules"]
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "lib": ["ES2015"],
+    "module": "ESNext",
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules"],
+  "include": ["."]
 }

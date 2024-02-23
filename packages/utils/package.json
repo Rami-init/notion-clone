@@ -2,18 +2,19 @@
   "name": "@repo/utils",
   "version": "0.1.1",
   "sideEffects": false,
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
-    "watch": "tsup --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "watch": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix"
@@ -26,8 +27,8 @@
     "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20.11.19",
     "tsup": "^6.0.1",
     "typescript": "^5.2.2"

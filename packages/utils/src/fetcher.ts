@@ -1,15 +1,14 @@
+/* eslint-disable no-undef */
 // eslint-disable-next-line no-undef
-interface IInitRequest extends RequestInit {
-  cache: string;
-}
+
 export async function fetcher<JSON>(
   input: string | URL | Request,
-  init?: IInitRequest
+  init?: RequestInit
 ): Promise<JSON> {
   const response = await fetch(input, {
     ...init,
     cache: "no-store",
-  } as IInitRequest);
+  } as RequestInit);
 
   return (await response.json()) as JSON;
 }

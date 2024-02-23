@@ -1,6 +1,6 @@
+import * as React from "react";
 import type { VariantProps } from "@repo/utils";
 import { cn, cva } from "@repo/utils";
-import * as React from "react";
 
 const badgeVariants = cva(
   "flex items-center rounded-full text-xs font-medium border",
@@ -8,7 +8,7 @@ const badgeVariants = cva(
     variants: {
       color: {
         default: "border-gray-400/30 bg-gray-400/30 text-foreground",
-        primary: "border-primary bg-primary text-primary-foreground",
+        primary: "border-primary text-primary-foreground",
         secondary: "border-secondary bg-secondary text-secondary-foreground",
       },
       variant: {
